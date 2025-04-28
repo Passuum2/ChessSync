@@ -1,9 +1,0 @@
-/*main.css - Class for defining characteristics of president page
- *Myles Darity-Reese
- * 3-Apr-25
- */
-
-html {
-    font-size: 85%;
-    box-sizing: border-box;
-}
