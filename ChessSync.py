@@ -1,7 +1,6 @@
 #ChessSync.py-
 #Myles Darity-Reese, Sri
 #
-
 from flask import Flask, render_template
 from modules import query_api
 
@@ -17,10 +16,15 @@ def index():
 
 @app.route('/<name>')
 #Second route
-def search(name):
+def search(name) -> str:
     #
     #
-    player = query_api(name).json()
+    
+    player = query_api(name)
+    if not player:
+        return f"Player '{name}' not found!"
+
+    player = player.json()
     return f"Username: {player['username']}"
 
 if __name__ == '__main__':
