@@ -31,10 +31,10 @@ def get_chess_blitz_summary(data):
     if 'chess_blitz' not in data:
         return "blitz: No data available"
 
-    rapid = data['chess_blitz']
-    last_rating = rapid.get('last',{}).get('rating', 'N/A')
-    best_rating = rapid.get('best',{}).get('rating', 'N/A')
-    record = rapid.get('record',{})
+    blitz = data['chess_blitz']
+    last_rating = blitz.get('last',{}).get('rating', 'N/A')
+    best_rating = blitz.get('best',{}).get('rating', 'N/A')
+    record = blitz.get('record',{})
     wins = record.get('win',0)
     losses = record.get('loss',0)
     draws = record.get('draw',0)
@@ -47,10 +47,10 @@ def get_chess_bullet_summary(data):
     if 'chess_bullet' not in data:
         return "bullet: No data available"
 
-    rapid = data['chess_bullet']
-    last_rating = rapid.get('last',{}).get('rating', 'N/A')
-    best_rating = rapid.get('best',{}).get('rating', 'N/A')
-    record = rapid.get('record',{})
+    bullet = data['chess_bullet']
+    last_rating = bullet.get('last',{}).get('rating', 'N/A')
+    best_rating = bullet.get('best',{}).get('rating', 'N/A')
+    record = bullet.get('record',{})
     wins = record.get('win',0)
     losses = record.get('loss',0)
     draws = record.get('draw',0)
