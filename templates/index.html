@@ -1,0 +1,30 @@
+<!--index.html - extends base.html
+ 	Myles Darity-Reese, Sri
+	17-Apr-2025 -->
+
+{% block content %}
+
+<h1> ChessSync </h1>
+
+<p>Hallo</p>
+
+<center>
+    <form id="playerForm" onsubmit="updateAction(event)">
+    <label for="player">Player: </label>
+    <input type="text" id="player" name="player"> <br><br>
+    <input type="submit" value="Search">
+    </form>
+</center>
+
+
+<script>
+    function updateAction(event) {
+        event.preventDefault(); // Prevent normal form submission
+        const player = document.getElementById("player").value;
+        const encodedPlayer = encodeURIComponent(player);
+        window.location.href = `/${encodedPlayer}`;
+    }
+</script>
+
+{% endblock %}
+
