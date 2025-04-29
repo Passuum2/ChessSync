@@ -1,2 +1,5 @@
 Worldchess/
 __pycache__/
+env/
+queries.py
+db.py
