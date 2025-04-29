@@ -5,8 +5,6 @@
 #query_api(): Returns API database
 
 import requests      #get()
-import Worldchess    #champion.sql, eco.sql, elo.sql, games.sql, location.sql
-import re
 
 IP_ADDRESS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 API_URL = 'https://api.chess.com/pub/player/{}'
