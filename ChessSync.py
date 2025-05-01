@@ -26,10 +26,14 @@ def index():
     #Implementation: 
     return render_template('index.html')
 
-# @app.route('/<name>')
-# #Second route# Get column names    tGames = cur.fetchall()
-#     player = player.json()
-#     return f"Username: {player['username']}"
+@app.route('/<name>')
+def search(name):
+    player_response = query_api(name)
+    if player_response is not None:
+        player = player_response.json()
+        return render_template('playertemp.html', player = player)
+    else:
+        return "Player not found", 404
 
 @app.route('/test')
 #Index route
