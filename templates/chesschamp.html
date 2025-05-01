@@ -2,8 +2,25 @@
  	Myles Darity-Reese, Sri
 	28-Apr-2025 -->
 
-{% block content %}
-<h1>{{ champion['Year'] }}</h1>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Game List</title>
+	</head>
+	<body>
+		<body>
+			<h1>Player Names and Elo Ratings</h1>
+			{% for game in games %}
+				{% for rating in elo %}
+					{% if game['white_player'] == rating['player_name']%}
+						<h2>{{ game['white_player'] }} Rating: {{rating['elo_rating']}}
+						{% endif %}
+				{% endfor %}
+			{% endfor %}
+		</body>
 
-
-{% endblock %}
+		
+	</body>
+	</html>
