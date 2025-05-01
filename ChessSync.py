@@ -33,7 +33,7 @@ def search(name):
         player = player_response.json()
         return render_template('playertemp.html', player = player)
     else:
-        return "Player not found", 404
+        return render_template('404.html') #TODO
 
 @app.route('/test')
 #Index route
