@@ -3,16 +3,21 @@
 	17-Apr-2025 -->
 
 {% block content %}
+<head><link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"></head>
 
-<h1> ChessSync </h1>
+<h1 style = "font-family: 'Montserrat', sans-serif;color:darkolivegreen;">
+     ChessSync 
+    </h1>
 
-<p>Hallo</p>
+
+<!--<body style="background-color: rgb(63, 63, 63);"> -->
+<body style="background-color: rgb(39, 39, 39);"></body>
 
 <center>
     <form id="playerForm" onsubmit="updateAction(event)">
-    <label for="player">Player: </label>
+    <label for="player" style = "color:white;">Player: </label>
     <input type="text" id="player" name="player"> <br><br>
-    <input type="submit" value="Search">
+    <input type="submit" style = "color:white; background-color:darkolivegreen;" value="Search">
     </form>
 </center>
 

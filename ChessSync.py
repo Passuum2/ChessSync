@@ -15,9 +15,9 @@ def getDatabase(sqlQuery) -> tuple:
     #getDatabase():
     #Implementation:
     cur = mysql.connection.cursor()
-    cur.execute(sqlQuery)
-    sqlDB = cur.fetchall()
-    return sqlDB
+    cur.execute(example_game_query)
+    rv = cur.fetchall()
+    return str(rv)
 
 @app.route('/')
 #Index route
@@ -34,12 +34,14 @@ def index():
 @app.route('/test')
 #Index route
 def champtemp():
-    #champtemp():
-    #Implementation: 
-    dGames = getDatabase(games)
-    dElo = getDatabase(elo)
-    dEco = getDatabase(eco)
-    return render_template('chesschamp.html', games = dGames, elo = dElo, eco = dEco)
+    #index(): Renders index.html
+    #implementation: 
+    return render_template('chesschamp.html', )
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
