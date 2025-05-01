@@ -12,9 +12,9 @@ mysql = MySQL(app)
 @app.route("/")
 def games():
     cur = mysql.connection.cursor()
-    cur.execute(example_game_query)
-    rv = cur.fetchall()
-    return str(rv)
+    #cur.execute(example_game_query)
+    #rv = cur.fetchall()
+    #return str(rv)
 
 @app.route('/')
 #Index route
@@ -41,6 +41,11 @@ def champtemp():
     #index(): Renders index.html
     #implementation: 
     return render_template('chesschamp.html', )
+
+@app.route('/learn')
+#Learning page
+def learn():
+    return render_template('learn.html')
 
 
 
