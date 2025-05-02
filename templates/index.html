@@ -2,25 +2,70 @@
  	Myles Darity-Reese, Sri
 	17-Apr-2025 -->
 
-{% block content %}
-<head><link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"></head>
 
-<h1 style = "font-family: 'Montserrat', sans-serif;color:darkolivegreen;">
-     ChessSync 
-    </h1>
+<head><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>     
+<body>
+    <h1>ChessSync</h1>
 
+    {% block content %}
+    {% endblock %}
 
-<!--<body style="background-color: rgb(63, 63, 63);"> -->
-<body style="background-color: rgb(39, 39, 39);"></body>
+    <center>
+        <form id="playerForm" onsubmit="updateAction(event)">
+            <label for="player" style="color:white;">Player: </label>
+            <input type="text" id="player" name="player"> <br><br>
+            <input type="submit" style="color:white; background-color:darkolivegreen;" value="Search">
+        </form>
+    </center>
+    <h2>Chess Titles</h2>
 
-<center>
-    <form id="playerForm" onsubmit="updateAction(event)">
-    <label for="player" style = "color:white;">Player: </label>
-    <input type="text" id="player" name="player"> <br><br>
-    <input type="submit" style = "color:white; background-color:darkolivegreen;" value="Search">
-    </form>
-</center>
+    <ul>
+        <li>
+            <strong>World Chess Champion</strong>
+            <p>Youngest: Gukesh Dommaraju became the youngest undisputed World Chess Champion at 18 years and 195 days in December 2024, defeating Ding Liren.<br><br>Oldest: Wilhelm Steinitz (Austria) was the oldest to win the World Chess Championship at 50 years old in 1886, becoming the first official World Champion.</p>
+        </li>
+        <li>
+            <strong>Grand Master (GM)</strong>
+            <p>In order to achieve this title, a player must reach an established classical or standard FIDE rating of 2500 and earn three grandmaster norms in international competition. <br> <br>Youngest: Abhimanyu Mishra at 12 years, 4 months, and 25 days <br> <br>Oldest: Yuri Shabanov at 66 years old</p>
+        </li>
+        <li>
+            <strong>International Master (IM)</strong>
+            <p>To earn this title, a player must reach an established classical or standard FIDE rating of 2400 and achieve three international master norms in international competition.<br> <br> Youngest: Faustino Oro (Argentina) at age 10 in 2024. <br> <br>Oldest: George Thomas (United Kingdom) was awarded the International Master title at the age of 69 in 1950.</p>
+        </li>
+        <li>
+            <strong>FIDE Master (FM)</strong>
+            <p>The FIDE Master title is earned by any player who achieves a classical or standard FIDE rating of 2300 in international competition. No norms are required.<br> <br>Youngest: Alekhine Nouri (Philippines) at age 7 </p>
+        </li>
+        <li>
+            <strong>Candidate Master (CM)</strong>
+            <p>The Candidate Master title is earned by any player who achieves a classical or standard FIDE rating of 2200 in international competition. No norms are required.<br> <br>Youngest: Ethan Pang (UK) at age 9<br> <br>Oldest: Henry Camilleri (Malta) was awarded the Candidate Master title in 2011 at the age of 78.</p>
+        </li>
+        <li>
+            <strong>World Chess Champion</strong>
+            <p>Youngest: Hou Yifan (China) became the youngest Women's World Chess Champion at 16 years and 300 days in December 2010.<br><br>Oldest: Lyudmila Rudenko (Soviet Union) became Women's World Chess Champion at 46 years old in 1950.</p>
+        </li>
+        <li>
+            <strong>Woman Grandmaster (WGM)</strong>
+            <p>This title is exclusive to women and is earned by achieving a classical or standard FIDE rating of 2300 as well as three WGM norms in international competition.<br> <br>Youngest: Hou Yifan (China) at age 14.<br> <br>Oldest: Lyudmila Rudenko (Soviet Union) was awarded the Woman Grandmaster title in 1976 at the age of 72.</p>
+        </li>
+        <li>
+            <strong>Woman International Master (WIM)</strong>
+            <p>This title is exclusive to women and is earned by achieving a classical or standard FIDE rating of 2200. Three norms are required.<br> <br>Youngest: Nurgyul Salimova (Bulgaria) at age 8.</p>
+        </li>
+        <li>
+            <strong>Woman FIDE Master (WFM)</strong>
+            <p>This title is exclusive to women and is earned by achieving a classical or standard FIDE rating of 2100. No norms are required.<br><br> Oldest: Ingrīda Priedīte (Latvia) was awarded the Woman FIDE Master title in 2014 at the age of 60.</p>
+        </li>
+        <li>
+            <strong>Woman Candidate Master (WCM)</strong>
+            <p>This title is exclusive to women and is earned by achieving a classical or standard FIDE rating of 2000. No norms are required.</p>
+        </li>
+    </ul>
+    
 
+</body>
 
 <script>
     function updateAction(event) {
@@ -31,5 +76,4 @@
     }
 </script>
 
-{% endblock %}
 

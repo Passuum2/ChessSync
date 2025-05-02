@@ -44,6 +44,9 @@ def champtemp():
     dElo = getDatabase(elo)
     dEco = getDatabase(eco)
     return render_template('chesschamp.html', games = dGames, elo = dElo, eco = dEco)
+@app.route('/learn')
+def learn():
+    return render_template('learn.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

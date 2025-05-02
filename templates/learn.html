@@ -1,67 +1,39 @@
-<!--index.html - extends base.html
- 	Myles Darity-Reese, Sri
-	17-Apr-2025 -->
+<!-- index.html - extends base.html
+     Myles Darity-Reese, Sri
+     17-Apr-2025 -->
 
-    {% block content %}
 
-    <head><link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    </head>
-    <div style="background-color: rgb(39, 39, 39); padding: 20px;"></div>
-    <h1 style = "font-family: 'Montserrat', sans-serif;color:darkolivegreen;">
-         ChessSync 
-        </h1>
-    
-    
-    <!--<body style="background-color: rgb(63, 63, 63);"> -->
-    <h2 style = "font-family: 'Montserrat', sans-serif; color:cyan">Learn</h2>
-    <body style="background-color: rgb(39, 39, 39);"></body>
-
-    <style>
-        a:link {
-          color: darkolivegreen;
-          background-color: transparent;
-          text-decoration: none;
-        }
-        
-        a:visited {
-          color:lightblue;
-          background-color: transparent;
-          text-decoration: none;
-        }
-        a:hover {
-            color:lightgreen;
-            background-color: transparent;
-            text-decoration: underline;
-        }
-        li{ 
-            font-family: 'Montserrat', sans-serif; color:white;
-             
-
-        }
-    </style>
-        
-
-    <h3 style = "font-family: 'Montserrat', sans-serif;color:white;">Youtubers</h3>
-    <ul>
-        <li> <a href="https://www.youtube.com/results?search_query=botezlive">GothamChess</a></li><br>
-        <li> <a href="https://www.youtube.com/@BotezLive">Botezlive</a></li><br>
-        <li> <a href="https://www.youtube.com/@GMHikaru">GMHikaru</a></li><br>
-        <li> <a href="https://www.youtube.com/@DanielNaroditskyGM">Daniel Naroditsky</a></li><br>
-        <li> <a href="https://www.youtube.com/@GMIgorSmirnov">Remote Chess Academy</a></li><br>
-        <li> <a href="https://www.youtube.com/@DinaBelenkaya">Dina Belenkaya</a></li><br>
-      </ul>
-    
-      <h3 style = "font-family: 'Montserrat', sans-serif;color:white;"> Websites</h3>
-    <ul>
-        <li> <a href = "https://www.chess.com/courses/welcome">Chess.com Courses</a></li><br>
-        <li> <a href = "https://www.chessable.com">Chessable</a></li><br>
-        <li> <a href = "https://www.chess.com/lessons/learn-the-openings">Chess.com Openings</a></li><br>
-        <li> <a href = "https://www.chess.com/endgames">Chess.com End Games</a></li><br>
-        <li> <a href = "https://www.chess.com/practice">Chess.com Pratice</a></li><br>
-        <li> <a href = "https://aimchess.com/">AimChess</a></li><br>
-        <li> <a href = "https://www.chess.com/learn">Chess.com Learn</a></li><br>
-        <li> <a href = "https://chessly.com/">Chessly(paid)</a></li>
-        
-    </ul>
-</div>
-{% endblock %}
+     {% block content %}
+     <head>
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+     </head>
+     
+     <div class="header-container">
+         <h1>ChessSync</h1>
+     </div>
+     
+     <h2>Learn</h2>
+     
+     <h3>Youtubers</h3>
+     <ul>
+         <li><a href="https://www.youtube.com/results?search_query=botezlive">GothamChess</a></li>
+         <li><a href="https://www.youtube.com/@BotezLive">Botezlive</a></li>
+         <li><a href="https://www.youtube.com/@GMHikaru">GMHikaru</a></li>
+         <li><a href="https://www.youtube.com/@DanielNaroditskyGM">Daniel Naroditsky</a></li>
+         <li><a href="https://www.youtube.com/@GMIgorSmirnov">Remote Chess Academy</a></li>
+         <li><a href="https://www.youtube.com/@DinaBelenkaya">Dina Belenkaya</a></li>
+     </ul>
+     
+     <h3>Websites</h3>
+     <ul>
+         <li><a href="https://www.chess.com/courses/welcome">Chess.com Courses</a></li>
+         <li><a href="https://www.chessable.com">Chessable</a></li>
+         <li><a href="https://www.chess.com/lessons/learn-the-openings">Chess.com Openings</a></li>
+         <li><a href="https://www.chess.com/endgames">Chess.com End Games</a></li>
+         <li><a href="https://www.chess.com/practice">Chess.com Practice</a></li>
+         <li><a href="https://aimchess.com/">AimChess</a></li>
+         <li><a href="https://www.chess.com/learn">Chess.com Learn</a></li>
+         <li><a href="https://chessly.com/">Chessly (paid)</a></li>
+     </ul>
+     {% endblock %}

@@ -2,3 +2,71 @@
  *Myles Darity-Reese, Sri
  * 17-Apr-25
  */
+
+ /* General Styles */
+body {
+    background-color: rgb(39, 39, 39);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+p{font-family: 'Montserrat', sans-serif;
+    color: darkolivegreen;    
+}
+
+ul {
+    list-style-type: square;
+}
+
+/* Header Container */
+.header-container {
+    background-color: rgb(39, 39, 39);
+    padding: 20px;
+}
+
+/* Headings */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: darkolivegreen;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: darkcyan;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+/* Lists */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Links */
+a:link {
+    color: darkolivegreen;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightblue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgreen;
+    background-color: transparent;
+    text-decoration: underline;
+}
