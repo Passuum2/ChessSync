@@ -1,26 +1,42 @@
 <!--chesschamp.html - template for chess championship database
  	Myles Darity-Reese, Sri
-	28-Apr-2025 -->
+	28-Apr-2025 --><!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Game List</title>
-	</head>
-	<body>
-		<body>
-			<h1>Player Names and Elo Ratings</h1>
-			{% for game in games %}
-				{% for rating in elo %}
-					{% if game['white_player'] == rating['player_name']%}
-						<h2>{{ game['white_player'] }} Rating: {{rating['elo_rating']}}
-						{% endif %}
-				{% endfor %}
-			{% endfor %}
-		</body>
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
-		
-	</body>
-	</html>
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Super Grandmasters</h2>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Rating</th>
+  </tr>
+  	{% for players in elo %}
+	  <tr>
+		<td>{{ players['player_name'] }}</td>
+		<td>{{ players['elo_rating'] }}</td>
+	  </tr>
+	{% endfor %}
+</table>
+
+</body>
+</html>
