@@ -1,0 +1,39 @@
+<!-- index.html - extends base.html
+     Myles Darity-Reese, Sri
+     17-Apr-2025 -->
+
+
+     {% block content %}
+     <head>
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+     </head>
+     
+     <div class="header-container">
+         <h1>ChessSync</h1>
+     </div>
+     
+     <h2>Learn</h2>
+     
+     <h3>Youtubers</h3>
+     <ul>
+         <li><a href="https://www.youtube.com/results?search_query=botezlive">GothamChess</a></li>
+         <li><a href="https://www.youtube.com/@BotezLive">Botezlive</a></li>
+         <li><a href="https://www.youtube.com/@GMHikaru">GMHikaru</a></li>
+         <li><a href="https://www.youtube.com/@DanielNaroditskyGM">Daniel Naroditsky</a></li>
+         <li><a href="https://www.youtube.com/@GMIgorSmirnov">Remote Chess Academy</a></li>
+         <li><a href="https://www.youtube.com/@DinaBelenkaya">Dina Belenkaya</a></li>
+     </ul>
+     
+     <h3>Websites</h3>
+     <ul>
+         <li><a href="https://www.chess.com/courses/welcome">Chess.com Courses</a></li>
+         <li><a href="https://www.chessable.com">Chessable</a></li>
+         <li><a href="https://www.chess.com/lessons/learn-the-openings">Chess.com Openings</a></li>
+         <li><a href="https://www.chess.com/endgames">Chess.com End Games</a></li>
+         <li><a href="https://www.chess.com/practice">Chess.com Practice</a></li>
+         <li><a href="https://aimchess.com/">AimChess</a></li>
+         <li><a href="https://www.chess.com/learn">Chess.com Learn</a></li>
+         <li><a href="https://chessly.com/">Chessly (paid)</a></li>
+     </ul>
+     {% endblock %}
