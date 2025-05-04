@@ -1,222 +1,78 @@
-<!--stats.html
- 	Myles Darity-Reese, Sri
-	17-Apr-2025 -->
+<!-- stats.html
+  Myles Darity-Reese, Sri
+  17-Apr-2025 - 
+-->
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>ChessSync</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <style>
-            body {
-                background-color: #121212;
-                color: #00ffcc;
-                font-family: 'Montserrat', sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            a {
-               color: #00ffcc;
-               text-decoration: none;
-               transition: color 0.3s ease, text-shadow 0.3s ease;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ChessSync</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
 
-           a:hover {
-               color: #00bfa6;
-               text-shadow: 0 0 5px rgba(0, 255, 204, 0.6);
-               text-decoration: underline;
-            }
-            
-    
-            header, .header-container {
-                background-color: #000;
-                text-align: center;
-                padding: 2rem 1rem;
-                box-shadow: 0 0 15px #00ffcc;
-            }
-    
-            header h1, .header-container h1 {
-                color: #00ffcc;
-                font-size: 2.5rem;
-                margin: 0;
-            }
-    
-            main {
-                max-width: 1000px;
-                margin: 2rem auto;
-                background-color: #1e1e1e;
-                padding: 2rem;
-                border-radius: 12px;
-                box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
-            }
-    
-            form {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-    
-            input[type="text"] {
-                padding: 0.5rem;
-                width: 250px;
-                border: none;
-                border-radius: 6px;
-            }
-    
-            input[type="submit"] {
-                padding: 0.5rem 1.2rem;
-                border: none;
-                border-radius: 6px;
-                background-color: darkolivegreen;
-                color: white;
-                margin-left: 10px;
-                cursor: pointer;
-            }
-    
-            ul {
-                list-style: none;
-                padding: 0;
-            }
-    
-            li {
-                margin-bottom: 2rem;
-            }
-    
-            li strong {
-                color: #00ffcc;
-                font-size: 1.2rem;
-            }
-    
-            footer {
-                background-color: #000;
-                padding: 2rem 1rem;
-                text-align: center;
-                color: #00ffcc;
-                font-size: 1rem;
-                border-top: 2px solid #00bfa6;
-                box-shadow: 0 -5px 15px rgba(0, 255, 204, 0.2);
-                margin-top: 4rem;
-            }
-    
-            footer a {
-                color: #00ffcc;
-                text-decoration: none;
-                margin: 0 0.5rem;
-                transition: color 0.3s ease;
-            }
-    
-            footer a:hover {
-                color: #00bfa6;
-                text-decoration: underline;
-            }
-    
-            /* Chess Titles Grid */
-            .titles-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-    
-            .title-card {
-                background-color: #2a2a2a;
-                padding: 1.5rem;
-                border-radius: 8px;
-                box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
-            }
-    
-            .title-card h3 {
-                color: #00ffcc;
-                font-size: 1.5rem;
-            }
-    
-            .title-card p {
-                font-size: 1rem;
-                color: #ddd;
-            }
-    
-            .title-card a {
-                color: #00ffcc;
-                text-decoration: none;
-            }
-    
-            .title-card a:hover {
-                text-decoration: underline;
-            }
-    
-            /* Sick Button */
-            .sick-button {
-                display: inline-block;
-                padding: 0.75rem 1.5rem;
-                font-size: 1.1rem;
-                font-weight: bold;
-                text-transform: uppercase;
-                text-decoration: none;
-                color: #121212;
-                background: linear-gradient(135deg, #00ffcc, #00bfa6);
-                border-radius: 8px;
-                box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
-                transition: all 0.3s ease;
-                position: relative;
-            }
-    
-            .sick-button:hover {
-                background: linear-gradient(135deg, #00bfa6, #00ffcc);
-                color: #fff;
-                box-shadow: 0 0 25px rgba(0, 255, 204, 0.9);
-                transform: scale(1.05);
-            }
-    
-            @media screen and (max-width: 600px) {
-                header h1 {
-                    font-size: 2rem;
-                }
-    
-                .title-card {
-                    padding: 1rem;
-                }
-            }
-        </style>
-    </head>
-    <body>
+  <header>
+    <h1><i class="fas fa-chess-knight"></i> {{name}}'s Stats</h1> <br><br>
+    <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+  </header>
 
-    <div class="header-container">
-        <h1>ChessSync</h1><br>
-        <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+  <main>
+    <p>Welcome to your personal chess performance dashboard! Track your progress across all formats.</p>
+
+    <div class="titles-grid">
+      <!-- Rapid -->
+      <div class="title-card">
+        <h3><i class="fas fa-bolt"></i> Rapid Record</h3>
+        <div class="player-meta">
+          <p><strong>Current Rating:</strong> {{ stats['chess_rapid'].get('last', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Best Rating:</strong> {{ stats['chess_rapid'].get('best', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Wins:</strong> {{ stats['chess_rapid'].get('record', {}).get('win', 'N/A') }}</p>
+          <p><strong>Draws:</strong> {{ stats['chess_rapid'].get('record', {}).get('draw', 'N/A') }}</p>
+          <p><strong>Losses:</strong> {{ stats['chess_rapid'].get('record', {}).get('loss', 'N/A') }}</p>
+        </div>
+      </div>
+
+      <!-- Blitz -->
+      <div class="title-card">
+        <h3><i class="fas fa-fire"></i> Blitz Record</h3>
+        <div class="player-meta">
+          <p><strong>Current Rating:</strong> {{ stats['chess_blitz'].get('last', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Best Rating:</strong> {{ stats['chess_blitz'].get('best', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Wins:</strong> {{ stats['chess_blitz'].get('record', {}).get('win', 'N/A') }}</p>
+          <p><strong>Draws:</strong> {{ stats['chess_blitz'].get('record', {}).get('draw', 'N/A') }}</p>
+          <p><strong>Losses:</strong> {{ stats['chess_blitz'].get('record', {}).get('loss', 'N/A') }}</p>
+        </div>
+      </div>
+
+      <!-- Bullet -->
+      <div class="title-card">
+        <h3><i class="fas fa-stopwatch"></i> Bullet Record</h3>
+        <div class="player-meta">
+          <p><strong>Current Rating:</strong> {{ stats['chess_bullet'].get('last', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Best Rating:</strong> {{ stats['chess_bullet'].get('best', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Wins:</strong> {{ stats['chess_bullet'].get('record', {}).get('win', 'N/A') }}</p>
+          <p><strong>Draws:</strong> {{ stats['chess_bullet'].get('record', {}).get('draw', 'N/A') }}</p>
+          <p><strong>Losses:</strong> {{ stats['chess_bullet'].get('record', {}).get('loss', 'N/A') }}</p>
+        </div>
+      </div>
+
+      <!-- Puzzle -->
+      <div class="title-card">
+        <h3><i class="fas fa-brain"></i> Puzzle Record</h3>
+        <div class="player-meta">
+          <p><strong>Best Puzzle Rush Score:</strong> {{ stats['puzzle_rush'].get('best', {}).get('score', 'N/A') }}</p>
+        </div>
+      </div>
     </div>
-    
-    <!--<body style="background-color: rgb(63, 63, 63);"> -->
-    <body style="background-color: rgb(39, 39, 39);"></body>
+  </main>
 
-      <center>
-    <h2><u>Rapid Record</u></h2>
-    <p><strong>Current Rapid rating:</strong> {{ stats['chess_rapid'].get('last', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Best Rapid rating:</strong> {{ stats['chess_rapid'].get('best', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Wins:</strong> {{ stats['chess_rapid'].get('record', {}).get('win', 'N/A') }}</p>
-    <p><strong>Draws:</strong> {{ stats['chess_rapid'].get('record', {}).get('draw', 'N/A') }}</p>
-    <p><strong>Losses:</strong> {{ stats['chess_rapid'].get('record', {}).get('loss', 'N/A') }}</p>
-</center>
+  <footer>
+    <p><i class="fas fa-chess-pawn"></i> </p>
+    <a href="/">Back to Home</a>
+  </footer>
 
-<center>
-    <h2><u>Blitz Record</u></h2>
-    <p><strong>Current Blitz rating:</strong> {{ stats['chess_blitz'].get('last', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Best Blitz rating:</strong> {{ stats['chess_blitz'].get('best', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Wins:</strong> {{ stats['chess_blitz'].get('record', {}).get('win', 'N/A') }}</p>
-    <p><strong>Draws:</strong> {{ stats['chess_blitz'].get('record', {}).get('draw', 'N/A') }}</p>
-    <p><strong>Losses:</strong> {{ stats['chess_blitz'].get('record', {}).get('loss', 'N/A') }}</p>
-</center>
-
-<center>
-    <h2><u>Bullet Record</u></h2>
-    <p><strong>Current Bullet rating:</strong> {{ stats['chess_bullet'].get('last', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Best Bullet rating:</strong> {{ stats['chess_bullet'].get('best', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Wins:</strong> {{ stats['chess_bullet'].get('record', {}).get('win', 'N/A') }}</p>
-    <p><strong>Draws:</strong> {{ stats['chess_bullet'].get('record', {}).get('draw', 'N/A') }}</p>
-    <p><strong>Losses:</strong> {{ stats['chess_bullet'].get('record', {}).get('loss', 'N/A') }}</p>
-</center>
-
-<center>
-    <h2><u>Puzzle Record</u></h2>
-    <p><strong>Best Puzzle Rush score:</strong> {{ stats['puzzle_rush'].get('best', {}).get('score', 'N/A') }}</p>
-</center>
+</body>
+</html>
