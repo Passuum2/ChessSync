@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChessSync | Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -117,6 +116,29 @@
             text-decoration: underline;
         }
 
+        /* Sick Button */
+        .sick-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #121212;
+            background: linear-gradient(135deg, #00ffcc, #00bfa6);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sick-button:hover {
+            background: linear-gradient(135deg, #00bfa6, #00ffcc);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.9);
+            transform: scale(1.05);
+        }
+
         @media screen and (max-width: 600px) {
             header h1 {
                 font-size: 2rem;
@@ -135,17 +157,20 @@
 </header>
 
 <main>
-    {% block content %}
     <form id="playerForm" onsubmit="updateAction(event)">
         <label for="player">Enter Player Name:</label>
         <input type="text" id="player" name="player" placeholder="e.g., Ding Liren">
         <input type="submit" value="Search">
     </form>
-    {% endblock %}
+
+    <!-- SICK ASS BUTTON -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="/db/championship" class="sick-button"><i class="fas fa-trophy"></i> Championship Page</a>
+    </div>
 
     <p>This is Magnus Carlsen, he has the highest ever chess elo with a 2882 and is often considered the greatest</p>
     <br>
-    <img src="https://www.europechess.org/wp-content/uploads/2023/08/53138895353_885aee6ddf_k-1.jpg" width="300" height="200" alt="Magnus Carlsen - The true goat">
+    <center><img src="https://www.europechess.org/wp-content/uploads/2023/08/53138895353_885aee6ddf_k-1.jpg" width="300" height="200" alt="Magnus Carlsen - The true goat">
 
     <h2>Chess Titles</h2>
 
@@ -204,6 +229,7 @@
             <p><strong>Requirements:</strong> 2000 FIDE</p>
         </div>
     </div>
+    </center>
 </main>
 
 <footer>
@@ -212,7 +238,7 @@
 
 <script>
     function updateAction(event) {
-        event.preventDefault(); // Prevent normal form submission
+        event.preventDefault();
         const player = document.getElementById("player").value.trim();
         const encodedPlayer = encodeURIComponent(player.replace(/ /g, '-'));
         window.location.href = `/${encodedPlayer}`;

@@ -35,7 +35,7 @@ def search(name):
     else:
         return render_template('404.html') #TODO
 
-@app.route('/test')
+@app.route('/db/championship')
 #Index route
 def champtemp():
     #champtemp():
