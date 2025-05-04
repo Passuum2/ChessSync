@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 API_URL = 'https://api.chess.com/pub/player/{}/stats'
 
+
 def query_api(name):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
     response = requests.get(API_URL.format(name), headers=headers)
@@ -61,18 +62,18 @@ def get_chess_bullet_summary(data):
 
 
 
-@app.route('/player/<name>/stats')
-def result(name): 
-    data = query_api(name)
-    if not data:
-        return f"Player '{name}' not found!"
-    else:
-        data = data.json()
-        rpdSummary = get_chess_rapid_summary(data)
-        bltSummary = get_chess_bullet_summary(data)
-        btzSummary = get_chess_blitz_summary(data)
-        return f"Rapid: {rpdSummary}; Blitz: {btzSummary}; Bullet: {bltSummary}"
-        # return f" Rapid: {data['chess_rapid']}, Blitz:{data['chess_blitz']}, Bullet:{data['chess_bullet']}"
+# @app.route('/player/<name>/stats')
+# def result(name): 
+#     data = query_api(name)
+#     if not data:
+#         return f"Player '{name}' not found!"
+#     else:
+#         data = data.json()
+#         rpdSummary = get_chess_rapid_summary(data)
+#         bltSummary = get_chess_bullet_summary(data)
+#         btzSummary = get_chess_blitz_summary(data)
+#         return f"Rapid: {rpdSummary}; Blitz: {btzSummary}; Bullet: {bltSummary}"
+#         # return f" Rapid: {data['chess_rapid']}, Blitz:{data['chess_blitz']}, Bullet:{data['chess_bullet']}"
     
 
 if __name__ == '__main__':

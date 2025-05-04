@@ -8,6 +8,7 @@ import requests      #get()
 
 IP_ADDRESS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 API_URL = 'https://api.chess.com/pub/player/{}'
+API_URL2 = 'https://api.chess.com/pub/player/{}/stats'
 
 def query_api(sName) -> requests.Response:
     #query_api(): Returns API database as request
@@ -15,4 +16,15 @@ def query_api(sName) -> requests.Response:
     #NOTE:CREDIT: https://support.chess.com/en/articles/9650547-published-data-api
     rReturn = requests.get(API_URL.format(sName), headers=IP_ADDRESS)
     return rReturn
+
+def query_statsapi(sName) -> requests.Response:
+    #query_api(): Returns API database as request
+    #Implementation: TODO
+    #NOTE:CREDIT: https://support.chess.com/en/articles/9650547-published-data-api
+    rReturn = requests.get(API_URL2.format(sName), headers=IP_ADDRESS)
+    return rReturn
+
+
+
+
 

@@ -5,7 +5,7 @@
 
 from flask import Flask, render_template     #render_template(), run()
 from flask_mysqldb import MySQL              #fetchall, fetchone(), execute(), connection.cursor(), MySQL()
-from modules import query_api                #query_api()
+from modules import *                        #query_api()
 from db import app                           #private
 from queries import *                        #games, champion, elo, eco, location
 
@@ -70,6 +70,15 @@ def players(name):
     """
     dPlayer = getDatabase(player_query)
     return render_template('GMtemp.html', games = dPlayer)
+
+@app.route('/<name>/stat')
+def pstat(name):
+    apiStats = query_statsapi(name)
+    if apiStats is not None:
+        player = apiStats.json()
+        return render_template('stats.html', stats=player)
+    else:
+        return render_template('404.html') #TODO
 
 if __name__ == '__main__':
     app.run(debug=True)
