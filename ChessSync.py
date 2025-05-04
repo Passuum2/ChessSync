@@ -77,7 +77,7 @@ def pstat(name):
     apiStats = query_statsapi(name)
     if apiStats is not None:
         player = apiStats.json()
-        return render_template('stats.html', stats=player)
+        return render_template('stats.html', stats=player, datetime= datetime, name = name)
     else:
         return render_template('404.html') #TODO
     
