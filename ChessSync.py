@@ -44,9 +44,32 @@ def champtemp():
     dElo = getDatabase(elo)
     dEco = getDatabase(eco)
     return render_template('chesschamp.html', games = dGames, elo = dElo, eco = dEco)
+
 @app.route('/learn')
 def learn():
     return render_template('learn.html')
+
+@app.route('/games/<name>')
+#Index route
+def players(name):
+    #players():
+    #Implementation: 
+    player_query = f"""
+    SELECT 
+        g.id AS game_id,
+        g.white_player,
+        g.black_player,
+        g.result,
+        c.year,
+        e.moves
+    FROM games g
+    JOIN champion c ON g.championship_id = c.id
+    LEFT JOIN eco e ON g.id = e.game_id
+    WHERE g.white_player = '{name}' OR g.black_player = '{name}'
+    ORDER BY c.year DESC;
+    """
+    dPlayer = getDatabase(player_query)
+    return render_template('GMtemp.html', games = dPlayer)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ player_name }} | Chess Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+
+        header h1 {
+            color: #00ffcc;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 2rem auto;
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+            text-align: left;
+        }
+
+        th {
+            background-color: #222;
+            color: #00ffcc;
+        }
+
+        tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+
+        tr:hover {
+            background-color: #333;
+        }
+
+        td {
+            color: #ddd;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #333;
+            margin-top: 3rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            th, td {
+                font-size: 0.85rem;
+                padding: 0.6rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-chess-knight"></i> {{ player_name }}'s Games</h1>
+</header>
+
+<main>
+    {% if games %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>White</th>
+                    <th>Black</th>
+                    <th>Result</th>
+                    <th>Moves</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td>{{ game['year'] }}</td>
+                    <td>{{ game['white_player'] }}</td>
+                    <td>{{ game['black_player'] }}</td>
+                    <td>{{ game['result'] }}</td>
+                    <td>{{ game['moves']}}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align: center;">No games found for {{ player_name }}.</p>
+    {% endif %}
+</main>
+
+<footer>
+    <p>&copy; 2025 ChessSync. All rights reserved. <i class="fas fa-chess-board"></i></p>
+</footer>
+
+</body>
+</html>
