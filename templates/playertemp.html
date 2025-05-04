@@ -2,6 +2,7 @@
      Myles Darity-Reese, Sri
      17-Apr-2025 -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,7 @@
 
 <header>
     <h1><i class="fas fa-chess"></i> {{ player['username'] }}'s Profile</h1>
+    <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
 </header>
 
 <main>
@@ -27,7 +29,7 @@
     <h2>Title: {{ player['title'] | default("Unrated") }}</h2>
 
     <div class="player-meta">
-        <p><strong>Joined:</strong> {{ player['joined'] | default("Unknown") }}</p>
+        <p><strong>Joined:</strong> {{ datetime.fromtimestamp(player['joined']).strftime('%B %d, %Y')| default("Unknown")  }}</p>
         <p><strong>Status:</strong> {{ player['status'] | default("Active") }}</p>
         {% if player['location'] %}
         <p><strong>Location:</strong> {{ player['location'] }}</p>
@@ -35,7 +37,8 @@
     </div>
 
     <div class="title-bar">
-        <p>Want to challenge this player? <button class="action-btn">Challenge Now</button></p>
+        <button class="action-btn" onclick="window.location.href += '/stats'">Stats now</button>
+        
     </div>
 </main>
 

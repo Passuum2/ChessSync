@@ -8,6 +8,7 @@ from flask_mysqldb import MySQL              #fetchall, fetchone(), execute(), c
 from modules import *                        #query_api()
 from db import app                           #private
 from queries import *                        #games, champion, elo, eco, location
+from datetime import datetime
 
 mysql = MySQL(app)
 
@@ -24,14 +25,14 @@ def getDatabase(sqlQuery) -> tuple:
 def index():
     #index(): Renders index.html
     #Implementation: 
-    return render_template('index.html')
+    return render_template('index.html',)
 
 @app.route('/<name>')
 def search(name):
     player_response = query_api(name)
     if player_response is not None:
         player = player_response.json()
-        return render_template('playertemp.html', player = player)
+        return render_template('playertemp.html', player = player, datetime = datetime)
     else:
         return render_template('404.html') #TODO
 
@@ -71,7 +72,7 @@ def players(name):
     dPlayer = getDatabase(player_query)
     return render_template('GMtemp.html', games = dPlayer)
 
-@app.route('/<name>/stat')
+@app.route('/<name>/stats')
 def pstat(name):
     apiStats = query_statsapi(name)
     if apiStats is not None:

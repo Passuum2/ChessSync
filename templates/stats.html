@@ -12,7 +12,7 @@
         <style>
             body {
                 background-color: #121212;
-                color: #e0e0e0;
+                color: #00ffcc;
                 font-family: 'Montserrat', sans-serif;
                 margin: 0;
                 padding: 0;
@@ -181,24 +181,42 @@
     </head>
     <body>
 
-    <h1>
-         ChessSync 
-        </h1>
-    
+    <div class="header-container">
+        <h1>ChessSync</h1><br>
+        <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+    </div>
     
     <!--<body style="background-color: rgb(63, 63, 63);"> -->
     <body style="background-color: rgb(39, 39, 39);"></body>
 
-    <h2>
-        <p><strong>Current Rapid rating:</strong> {{ stats['chess_rapid']['last']['rating'] }}</p>
-        <p><strong>Best Rapid rating:</strong> {{ stats['chess_rapid']['best']['rating'] }}</p>
-        <p><strong>Current Blitz rating:</strong> {{ stats['chess_blitz']['last']['rating'] }}</p>
-        <p><strong>Best Blitz rating:</strong> {{ stats['chess_blitz']['best']['rating'] }}</p>
-        <p><strong>Current Bullet rating:</strong> {{ stats['chess_bullet']['last']['rating'] }}</p>
-        <p><strong>Best Bullet rating:</strong> {{ stats['chess_bullet']['best']['rating'] }}</p>
-        <p><strong>Best Puzzle Rush score:</strong> {{ stats['puzzle_rush']['best']['score'] }}</p>
+      <center>
+    <h2><u>Rapid Record</u></h2>
+    <p><strong>Current Rapid rating:</strong> {{ stats['chess_rapid'].get('last', {}).get('rating', 'N/A') }}</p>
+    <p><strong>Best Rapid rating:</strong> {{ stats['chess_rapid'].get('best', {}).get('rating', 'N/A') }}</p>
+    <p><strong>Wins:</strong> {{ stats['chess_rapid'].get('record', {}).get('win', 'N/A') }}</p>
+    <p><strong>Draws:</strong> {{ stats['chess_rapid'].get('record', {}).get('draw', 'N/A') }}</p>
+    <p><strong>Losses:</strong> {{ stats['chess_rapid'].get('record', {}).get('loss', 'N/A') }}</p>
+</center>
 
-    </h2>
+<center>
+    <h2><u>Blitz Record</u></h2>
+    <p><strong>Current Blitz rating:</strong> {{ stats['chess_blitz'].get('last', {}).get('rating', 'N/A') }}</p>
+    <p><strong>Best Blitz rating:</strong> {{ stats['chess_blitz'].get('best', {}).get('rating', 'N/A') }}</p>
+    <p><strong>Wins:</strong> {{ stats['chess_blitz'].get('record', {}).get('win', 'N/A') }}</p>
+    <p><strong>Draws:</strong> {{ stats['chess_blitz'].get('record', {}).get('draw', 'N/A') }}</p>
+    <p><strong>Losses:</strong> {{ stats['chess_blitz'].get('record', {}).get('loss', 'N/A') }}</p>
+</center>
 
+<center>
+    <h2><u>Bullet Record</u></h2>
+    <p><strong>Current Bullet rating:</strong> {{ stats['chess_bullet'].get('last', {}).get('rating', 'N/A') }}</p>
+    <p><strong>Best Bullet rating:</strong> {{ stats['chess_bullet'].get('best', {}).get('rating', 'N/A') }}</p>
+    <p><strong>Wins:</strong> {{ stats['chess_bullet'].get('record', {}).get('win', 'N/A') }}</p>
+    <p><strong>Draws:</strong> {{ stats['chess_bullet'].get('record', {}).get('draw', 'N/A') }}</p>
+    <p><strong>Losses:</strong> {{ stats['chess_bullet'].get('record', {}).get('loss', 'N/A') }}</p>
+</center>
 
-    
+<center>
+    <h2><u>Puzzle Record</u></h2>
+    <p><strong>Best Puzzle Rush score:</strong> {{ stats['puzzle_rush'].get('best', {}).get('score', 'N/A') }}</p>
+</center>
