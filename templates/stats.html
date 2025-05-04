@@ -1,54 +1,78 @@
-<!--stats.html
- 	Myles Darity-Reese, Sri
-	17-Apr-2025 -->
+<!-- stats.html
+  Myles Darity-Reese, Sri
+  17-Apr-2025 - 
+-->
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>ChessSync</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-       
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ChessSync</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
 
-    <div class="header-container">
-        <h1>ChessSync</h1><br>
-        <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+  <header>
+    <h1><i class="fas fa-chess-knight"></i> {{name}}'s Stats</h1> <br><br>
+    <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+  </header>
+
+  <main>
+    <p>Welcome to your personal chess performance dashboard! Track your progress across all formats.</p>
+
+    <div class="titles-grid">
+      <!-- Rapid -->
+      <div class="title-card">
+        <h3><i class="fas fa-bolt"></i> Rapid Record</h3>
+        <div class="player-meta">
+          <p><strong>Current Rating:</strong> {{ stats['chess_rapid'].get('last', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Best Rating:</strong> {{ stats['chess_rapid'].get('best', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Wins:</strong> {{ stats['chess_rapid'].get('record', {}).get('win', 'N/A') }}</p>
+          <p><strong>Draws:</strong> {{ stats['chess_rapid'].get('record', {}).get('draw', 'N/A') }}</p>
+          <p><strong>Losses:</strong> {{ stats['chess_rapid'].get('record', {}).get('loss', 'N/A') }}</p>
+        </div>
+      </div>
+
+      <!-- Blitz -->
+      <div class="title-card">
+        <h3><i class="fas fa-fire"></i> Blitz Record</h3>
+        <div class="player-meta">
+          <p><strong>Current Rating:</strong> {{ stats['chess_blitz'].get('last', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Best Rating:</strong> {{ stats['chess_blitz'].get('best', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Wins:</strong> {{ stats['chess_blitz'].get('record', {}).get('win', 'N/A') }}</p>
+          <p><strong>Draws:</strong> {{ stats['chess_blitz'].get('record', {}).get('draw', 'N/A') }}</p>
+          <p><strong>Losses:</strong> {{ stats['chess_blitz'].get('record', {}).get('loss', 'N/A') }}</p>
+        </div>
+      </div>
+
+      <!-- Bullet -->
+      <div class="title-card">
+        <h3><i class="fas fa-stopwatch"></i> Bullet Record</h3>
+        <div class="player-meta">
+          <p><strong>Current Rating:</strong> {{ stats['chess_bullet'].get('last', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Best Rating:</strong> {{ stats['chess_bullet'].get('best', {}).get('rating', 'N/A') }}</p>
+          <p><strong>Wins:</strong> {{ stats['chess_bullet'].get('record', {}).get('win', 'N/A') }}</p>
+          <p><strong>Draws:</strong> {{ stats['chess_bullet'].get('record', {}).get('draw', 'N/A') }}</p>
+          <p><strong>Losses:</strong> {{ stats['chess_bullet'].get('record', {}).get('loss', 'N/A') }}</p>
+        </div>
+      </div>
+
+      <!-- Puzzle -->
+      <div class="title-card">
+        <h3><i class="fas fa-brain"></i> Puzzle Record</h3>
+        <div class="player-meta">
+          <p><strong>Best Puzzle Rush Score:</strong> {{ stats['puzzle_rush'].get('best', {}).get('score', 'N/A') }}</p>
+        </div>
+      </div>
     </div>
-    
-    <!--<body style="background-color: rgb(63, 63, 63);"> -->
-    <body style="background-color: rgb(39, 39, 39);"></body>
+  </main>
 
-      <center>
-    <h2><u>Rapid Record</u></h2>
-    <p><strong>Current Rapid rating:</strong> {{ stats['chess_rapid'].get('last', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Best Rapid rating:</strong> {{ stats['chess_rapid'].get('best', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Wins:</strong> {{ stats['chess_rapid'].get('record', {}).get('win', 'N/A') }}</p>
-    <p><strong>Draws:</strong> {{ stats['chess_rapid'].get('record', {}).get('draw', 'N/A') }}</p>
-    <p><strong>Losses:</strong> {{ stats['chess_rapid'].get('record', {}).get('loss', 'N/A') }}</p>
-</center>
+  <footer>
+    <p><i class="fas fa-chess-pawn"></i> </p>
+    <a href="/">Back to Home</a>
+  </footer>
 
-<center>
-    <h2><u>Blitz Record</u></h2>
-    <p><strong>Current Blitz rating:</strong> {{ stats['chess_blitz'].get('last', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Best Blitz rating:</strong> {{ stats['chess_blitz'].get('best', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Wins:</strong> {{ stats['chess_blitz'].get('record', {}).get('win', 'N/A') }}</p>
-    <p><strong>Draws:</strong> {{ stats['chess_blitz'].get('record', {}).get('draw', 'N/A') }}</p>
-    <p><strong>Losses:</strong> {{ stats['chess_blitz'].get('record', {}).get('loss', 'N/A') }}</p>
-</center>
-
-<center>
-    <h2><u>Bullet Record</u></h2>
-    <p><strong>Current Bullet rating:</strong> {{ stats['chess_bullet'].get('last', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Best Bullet rating:</strong> {{ stats['chess_bullet'].get('best', {}).get('rating', 'N/A') }}</p>
-    <p><strong>Wins:</strong> {{ stats['chess_bullet'].get('record', {}).get('win', 'N/A') }}</p>
-    <p><strong>Draws:</strong> {{ stats['chess_bullet'].get('record', {}).get('draw', 'N/A') }}</p>
-    <p><strong>Losses:</strong> {{ stats['chess_bullet'].get('record', {}).get('loss', 'N/A') }}</p>
-</center>
-
-<center>
-    <h2><u>Puzzle Record</u></h2>
-    <p><strong>Best Puzzle Rush score:</strong> {{ stats['puzzle_rush'].get('best', {}).get('score', 'N/A') }}</p>
-</center>
+</body>
+</html>
