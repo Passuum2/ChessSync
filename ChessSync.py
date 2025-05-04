@@ -1,19 +1,19 @@
-#ChessSync.py-
-#Myles Darity-Reese, Sri
+#ChessSync.py- Main 
+#Myles Darity-Reese, Srijan Basnet
 #18-Apr-25
-#
+#Utilities:
 
 from flask import Flask, render_template     #render_template(), run()
 from flask_mysqldb import MySQL              #fetchall, fetchone(), execute(), connection.cursor(), MySQL()
-from modules import *                        #query_api()
+from modules import *                        #query_api(), query_statsapi()
 from db import app                           #private
 from queries import *                        #games, champion, elo, eco, location
 
 mysql = MySQL(app)
 
 def getDatabase(sqlQuery) -> tuple:
-    #getDatabase():
-    #Implementation:
+    #getDatabase(): Returns Chess Championship database 
+    #Implementation: 
     cur = mysql.connection.cursor()
     cur.execute(sqlQuery)
     sqlDB = cur.fetchall()
@@ -36,7 +36,7 @@ def search(name):
         return render_template('404.html') #TODO
 
 @app.route('/db/championship')
-#Index route
+#Chess Championship Route
 def champtemp():
     #champtemp():
     #Implementation: 
@@ -45,12 +45,8 @@ def champtemp():
     dEco = getDatabase(eco)
     return render_template('chesschamp.html', games = dGames, elo = dElo, eco = dEco)
 
-@app.route('/learn')
-def learn():
-    return render_template('learn.html')
-
 @app.route('/games/<name>')
-#Index route
+#SGM Chess Player Route
 def players(name):
     #players():
     #Implementation: 
@@ -72,6 +68,7 @@ def players(name):
     return render_template('GMtemp.html', games = dPlayer)
 
 @app.route('/<name>/stat')
+#
 def pstat(name):
     apiStats = query_statsapi(name)
     if apiStats is not None:
