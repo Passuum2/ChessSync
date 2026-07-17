@@ -2,13 +2,28 @@
 Chess Sync is a full-stack web analytics platform built with Python (Flask), MySQL, and Bootstrap. It imports, normalizes, and indexes a database of World Chess Championship games from 2000 to 2025, exposing the data through APIs and a responsive dashboard that aggregates and displays player statistics analysis.
 
 ## Features
+**Historical Championship Data** (MySQL-backed)
 - Imports and normalizes World Chess Championship game data (2000–2025)
-- Indexed MySQL database for efficient querying
-- Player statistics dashboard
-- [List actual stats shown — win/loss record, opening frequency, rating trend, etc.]
+- Indexed database for efficient querying by player, year, and opening (ECO code)
 
+**Live Player Stats** (Chess.com API-backed)
+- Account creation date
+- Rapid/Blitz/Bullet ratings (best and current)
+- Win/loss/draw record per time control
+- Puzzle rating
+    
 ## Screenshots
+**Home Page** 
 
+![Screenshot](Screenshots/Home-ChessSync-.png)
+
+**API Stats Page**
+
+![Screenshot](Screenshots/API-ChessSync-.png)
+
+**Learn Page** 
+
+![Screenshot](Screenshots/Learn-ChessSync-.png)
 
 ## Tech Stack
 - **Backend:** Python, Flask
@@ -55,8 +70,6 @@ static/css/    — styling
 See [`schema.sql`](./schema.sql) for full table definitions and relationships.
 
 ## Status
-This project was originally built and tested using a university-provided MySQL instance, which is no longer active. The application logic, database schema, and query functionality were fully working as demonstrated in development (see Screenshots).
+This project was originally built and tested using a university-provided MySQL instance, which is no longer active. The historical championship database features are not runnable without a live MySQL connection (see Setup). The live player stats lookup (via Chess.com API) does not depend on MySQL and should still function independently.
 
-**Currently not runnable out of the box** — a live MySQL connection is required and is not included.
-
-**Planned:** Migrating to a hosted deployment on AWS (RDS + EC2/Elastic Beanstalk), with a live, publicly accessible version of the dashboard. Until then, see the Screenshots section and [schema/queries file, if you add one] for evidence of functionality.
+**Planned:** Migrating the database to AWS (RDS) with the app hosted on EC2 or Elastic Beanstalk, providing a live, publicly accessible version of the full dashboard.
