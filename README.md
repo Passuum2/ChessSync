@@ -62,7 +62,7 @@ templates/     — HTML views
 static/css/    — styling
 
 ## Data Source
-  Database: [Chess Archive World Championship PGN Collection](https://chessarchive.net/en/chess-collections/world-championship-pgn)
+  Database: [[Chess Archive World Championship PGN Collection](https://chessarchive.net/en/chess-collections/world-championship-pgn)](https://www.pgnmentor.com/files.html#world)
 
   PubAPI: https://support.chess.com/en/articles/9650547-what-is-the-pubapi-and-how-do-i-use-it
 
