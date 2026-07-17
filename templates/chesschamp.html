@@ -1,0 +1,50 @@
+<!-- index.html - extends base.html
+     Myles Darity-Reese, Sri
+     28-Apr-2025 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChessSync | Super Grandmasters</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-chess-king chess-icon"></i>Super Grandmasters</h1><br>
+    <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+</header>
+
+<main>
+    <p>Where titans of the 64 squares clash. Witness the elite minds who've reshaped chess history with brilliance.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Elo Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for players in elo %}
+            <tr>
+                <td>
+                    <a href="/games/{{ players['player_name'] | lower | replace(' ', '_') }}" class="player-link">
+                        {{ players['player_name'] }}
+                    </a>
+                </td>
+                <td>{{ players['elo_rating'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p>&copy; 2025 ChessSync. All rights reserved. <i class="fas fa-chess-board"></i></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!-- index.html - extends base.html
+     Myles Darity-Reese, Sri
+     17-Apr-2025 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChessSync | {{ player['username'] }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-chess"></i> {{ player['username'] }}'s Profile</h1><br>
+    <a href="/" class="sick-button"><i class="fas fa-home"></i> Home</a>
+</header>
+
+<main>
+    <div class="profile-icon">
+        <i class="fas fa-user-circle"></i>
+    </div>
+
+    <h2>Title: {{ player['title'] | default("Unrated") }}</h2>
+
+    <div class="player-meta">
+        <p><strong>Joined:</strong> {{ datetime.fromtimestamp(player['joined']).strftime('%B %d, %Y')| default("Unknown")  }}</p>
+        <p><strong>Status:</strong> {{ player['status'] | default("Active") }}</p>
+        {% if player['location'] %}
+        <p><strong>Location:</strong> {{ player['location'] }}</p>
+        {% endif %}
+    </div>
+
+    <div class="title-bar">
+        <button class="action-btn" onclick="window.location.href += '/stats'">Stats now</button>
+        
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 ChessSync. All rights reserved. <i class="fas fa-chess-board"></i></p>
+</footer>
+
+</body>
+</html>

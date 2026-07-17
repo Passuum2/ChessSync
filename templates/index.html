@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChessSync | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-chess-board"></i> ChessSync</h1>
+</header>
+
+ <main>
+    <form id="playerForm" onsubmit="updateAction(event)">
+        <label for="player">Enter Chess.com Username:</label>
+        <input type="text" id="player" name="player" placeholder="e.g., Magnus Carlsen">
+        <input type="submit" value="Search">
+    </form>
+
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="/db/championship" class="sick-button"><i class="fas fa-trophy"></i> Championship Page</a><br><br>
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="/new/learn" class="sick-button"><i class="fas fa-book"></i> Learn</a><br><br>
+    <p>This is Gukesh Dommaraju, he is the current World Chess Champion and has the record for the youngest World Chess Champion.<p>
+        <center><img src= "https://assets.entrepreneur.com/content/3x2/2000/1734091305-Untitleddesign-2024-12-13T173023138.jpg" width="300" height="200" alt="Gukesh Dommaraju"></center><br>
+    <p>This is Magnus Carlsen, he has the highest ever chess elo with a 2882 and is often considered the greatest</p>
+    <center><img src="https://www.europechess.org/wp-content/uploads/2023/08/53138895353_885aee6ddf_k-1.jpg" width="300" height="200" alt="Magnus Carlsen - The true goat"> <br><br>
+
+    <h2>Chess Titles</h2>
+    
+    <div class="titles-grid">
+        <div class="title-card">
+            <h3>World Chess Champion</h3>
+            <p><strong>Youngest:</strong> Gukesh Dommaraju, 18 years, 195 days (2024)<br>
+            <strong>Oldest:</strong> Wilhelm Steinitz, 50 years (1886)</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/grandmasters">Grand Master (GM)</a></h3>
+            <p><strong>Requirements:</strong> 2500 FIDE + 3 GM norms<br>
+            <strong>Youngest:</strong> Abhimanyu Mishra, 12y 4m 25d<br>
+            <strong>Oldest:</strong> Yuri Shabanov, 66 years</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/international-masters">International Master (IM)</a></h3>
+            <p><strong>Requirements:</strong> 2400 FIDE + 3 IM norms<br>
+            <strong>Youngest:</strong> Faustino Oro, 10 years (2024)<br>
+            <strong>Oldest:</strong> George Thomas, 69 years (1950)</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/fide-masters">FIDE Master (FM)</a></h3>
+            <p><strong>Requirements:</strong> 2300 FIDE<br>
+            <strong>Youngest:</strong> Alekhine Nouri, 7 years</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/Candidate-masters">Candidate Master (CM)</a></h3>
+            <p><strong>Requirements:</strong> 2200 FIDE<br>
+            <strong>Youngest:</strong> Ethan Pang, 9 years<br>
+            <strong>Oldest:</strong> Henry Camilleri, 78 years (2011)</p>
+        </div>
+        <div class="title-card">
+            <h3>Women's World Champion</h3>
+            <p><strong>Youngest:</strong> Hou Yifan, 16y 300d (2010)<br>
+            <strong>Oldest:</strong> Lyudmila Rudenko, 46 years (1950)</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/woman-grandmasters">Woman Grandmaster (WGM)</a></h3>
+            <p><strong>Requirements:</strong> 2300 FIDE + 3 WGM norms<br>
+            <strong>Youngest:</strong> Hou Yifan, 14 years<br>
+            <strong>Oldest:</strong> Lyudmila Rudenko, 72 years (1976)</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/woman-international-masters">Woman International Master (WIM)</a></h3>
+            <p><strong>Requirements:</strong> 2200 FIDE + 3 norms<br>
+            <strong>Youngest:</strong> Nurgyul Salimova, 8 years</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/woman-fide-masters">Woman FIDE Master (WFM)</a></h3>
+            <p><strong>Requirements:</strong> 2100 FIDE<br>
+            <strong>Oldest:</strong> Ingrīda Priedīte, 60 years (2014)</p>
+        </div>
+        <div class="title-card">
+            <h3><a href="https://www.chess.com/members/titled-players/woman-candidate-masters">Woman Candidate Master (WCM)</a></h3>
+            <p><strong>Requirements:</strong> 2000 FIDE</p>
+        </div>
+    </div>
+    </center>
+</main>
+
+<footer>
+    <p>&copy; 2025 ChessSync. All rights reserved. <i class="fas fa-chess-knight"></i></p>
+</footer>
+
+<script>
+    function updateAction(event) {
+        event.preventDefault();
+        const player = document.getElementById("player").value.trim();
+        const encodedPlayer = encodeURIComponent(player.replace(/ /g, '-'));
+        window.location.href = `/${encodedPlayer}`;
+    }
+</script>
+
+</body>
+</html>
