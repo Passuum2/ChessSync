@@ -8,7 +8,7 @@ Chess Sync is a full-stack web analytics platform built with Python (Flask), MyS
 - [List actual stats shown — win/loss record, opening frequency, rating trend, etc.]
 
 ## Screenshots
-[Placeholder — add 1-2 images of the dashboard]
+
 
 ## Tech Stack
 - **Backend:** Python, Flask
@@ -18,8 +18,8 @@ Chess Sync is a full-stack web analytics platform built with Python (Flask), MyS
 ## Setup & Installation
 ### Prerequisites
 - Python 3.x
-- MySQL server
 - pip
+- **Note:** Requires your own MySQL instance — see [Status](#status) below.
 
 ### Steps
 1. Clone the repo
@@ -31,15 +31,25 @@ Chess Sync is a full-stack web analytics platform built with Python (Flask), MyS
 
 ## Project Structure
 ChessSync.py   — main Flask app
+
+db.py          — Flask app config and MySQL connection setup
+
 insert.py      — data import/indexing
-modules.py     — shared logic
-search.py      — search/query logic
+
+modules.py     — shared logic (Chess.com API calls)
+
+queries.py     — SQL query definitions
+
+search.py      — standalone search/query logic
+
 templates/     — HTML views
+
 static/css/    — styling
 
 ## Data Source
-Database: [[Where the World Chess Championship data came from — cite the source]](https://chessarchive.net/en/chess-collections/world-championship-pgn)
-PubAPI: https://support.chess.com/en/articles/9650547-what-is-the-pubapi-and-how-do-i-use-it
+  Database: [Chess Archive World Championship PGN Collection](https://chessarchive.net/en/chess-collections/world-championship-pgn)
+
+  PubAPI: https://support.chess.com/en/articles/9650547-what-is-the-pubapi-and-how-do-i-use-it
 
 ## Database Schema
 See [`schema.sql`](./schema.sql) for full table definitions and relationships.
