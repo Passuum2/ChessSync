@@ -38,7 +38,11 @@ templates/     — HTML views
 static/css/    — styling
 
 ## Data Source
-[Where the World Chess Championship data came from — cite the source]
+Database: [[Where the World Chess Championship data came from — cite the source]](https://chessarchive.net/en/chess-collections/world-championship-pgn)
+PubAPI: https://support.chess.com/en/articles/9650547-what-is-the-pubapi-and-how-do-i-use-it
+
+## Database Schema
+See [`schema.sql`](./schema.sql) for full table definitions and relationships.
 
 ## Status
 This project was originally built and tested using a university-provided MySQL instance, which is no longer active. The application logic, database schema, and query functionality were fully working as demonstrated in development (see Screenshots).
